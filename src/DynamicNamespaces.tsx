@@ -19,6 +19,7 @@ export default function DynamicNamespaces({
   async function loadNamespaces() {
     if (typeof loadLocale !== 'function') return
 
+    setLoaded(false)
     const pageNamespaces = await Promise.all(
       namespaces.map((ns) => loadLocale(lang, ns))
     )
